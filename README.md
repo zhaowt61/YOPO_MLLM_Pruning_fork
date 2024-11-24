@@ -32,7 +32,7 @@ cd ~
 cp modeling_llama_prune.py {YOUR ENV PATH}/lib/python3.10/site-packages/transformers//models/llama/modeling_llama.py
 ```
 
-3. Download the checkpoints of pruned LLavA
+3. Download the checkpoints of pruned LLaVA
 
 1. [LLaVA-1.5-7B (12% FLOPs)](https://huggingface.co/zwt123home123/llava-1.5-7b-prune-zp12)
 2. [LLaVA-1.5-7B (25% FLOPs)](https://huggingface.co/zwt123home123/llava-1.5-13b-prune-zp25)
@@ -44,7 +44,9 @@ cp modeling_llama_prune.py {YOUR ENV PATH}/lib/python3.10/site-packages/transfor
 :triangular_flag_on_post:  The code for training pruned LLava will also be released soon.  
 
 
-
+## Main result
+![Results on prunining the LLaVa](images/main_result.png "Results on prunining the LLaVa")
+![Results on pruning the Qwen and InternVL](images/many_models.png "Results on pruning the Qwen and InternVL")
 
 
 ## Citation
