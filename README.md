@@ -39,7 +39,7 @@ cp modeling_llama_prune.py {YOUR ENV PATH}/lib/python3.10/site-packages/transfor
 3. [LLaVA-1.5-13B (12% FLOPs)](https://huggingface.co/zwt123home123/llava-1.5-7b-prune-zp12)
 4. [LLaVA-1.5-13B (25% FLOPs)](https://huggingface.co/zwt123home123/llava-1.5-13b-prune-zp25)
 
-for sanity check, please refer to the infer.sh.
+:warnining: for sanity check, please refer to the [infer.sh](infer.sh).
 
 :triangular_flag_on_post:  We will release the code for pruning the visual computation in Qwen, InternVL without the fine-tuning process very soon.  
 :triangular_flag_on_post:  The code for training pruned LLava will also be released soon.  
