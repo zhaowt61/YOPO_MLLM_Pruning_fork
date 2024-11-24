@@ -1,4 +1,4 @@
-# :rocket: EffiPru_VLM_pruning
+# :rocket: EffiPru: Efficiently Pruning Your MLLMs
 
 
 This repository contains the core code to implement the idea of  our paper:
