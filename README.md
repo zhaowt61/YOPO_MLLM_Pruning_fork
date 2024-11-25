@@ -7,6 +7,8 @@ This repository contains the core code to implement the idea of  our paper:
 
 ![Alt text](images/method_fig.png "Overview of our method.")
 
+:bangbang: While many studies focus on pruning visual tokens to reduce the computational overhead caused by visual redundancy, the process of identifying these tokens is itself resource-intensive. **Can we prune our MLLM just once instead?**
+
 
 ## Abstract
 By treating visual tokens from visual encoders as text tokens, Multimodal Large Language Models (MLLMs) have achieved remarkable progress across diverse visual understanding tasks, leveraging the robust architectures of Large Language Models (LLMs). However, as token counts grow, the quadratic scaling of computation in LLMs introduces a significant efficiency bottleneck, impeding further scalability. Although recent approaches have explored pruning visual tokens or employing lighter LLM architectures, the computational overhead from an increasing number of visual tokens remains a substantial challenge.
