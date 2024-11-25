@@ -1,4 +1,4 @@
-# :rocket: EffiPru: Efficiently Pruning Your MLLMs
+# :rocket: YOPO: You Only Prune Once for Your MLLMs
 
 
 This repository contains the core code to implement the idea of  our paper:
