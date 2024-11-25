@@ -7,8 +7,9 @@ This repository contains the core code to implement the idea of  our paper:
 
 ![Alt text](images/method_fig.png "Overview of our method.")
 
-***:bangbang: While many studies focus on pruning visual tokens to reduce the computational overhead caused by visual redundancy, the process of identifying these tokens for each conversation is itself resource-intensive. Now the question comes,***  
-*****Can we prune our MLLM just once instead?**:interrobang:***
+### :bangbang: While many studies focus on pruning visual tokens to reduce the computational overhead caused by visual redundancy, the process of identifying these tokens for each conversation is itself resource-intensive. Now the question comes, ###  
+
+### **Can we prune our MLLM just once instead?**:interrobang:** ###
 
 
 ## Abstract
