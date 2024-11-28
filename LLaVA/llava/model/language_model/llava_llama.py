@@ -14,7 +14,7 @@
 
 
 from typing import List, Optional, Tuple, Union
-
+import os
 import torch
 import torch.nn as nn
 
@@ -29,11 +29,10 @@ from ..llava_arch import LlavaMetaModel, LlavaMetaForCausalLM
 
 class LlavaConfig(LlamaConfig):
     model_type = "llava_llama"
-
-
+    
 class LlavaLlamaModel(LlavaMetaModel, LlamaModel):
     config_class = LlavaConfig
-
+    
     def __init__(self, config: LlamaConfig):
         super(LlavaLlamaModel, self).__init__(config)
 
@@ -43,6 +42,12 @@ class LlavaLlamaForCausalLM(LlamaForCausalLM, LlavaMetaForCausalLM):
 
     def __init__(self, config):
         super(LlamaForCausalLM, self).__init__(config)
+        config.attncut_w  = int(os.environ.get('attncut_w'))
+        config.layercut_num  = int(os.environ.get('layercut_num'))
+        config.headcut_num = int(os.environ.get('headcut_num')) 
+        config.mlpcut_ratio = int(os.environ.get('mlpcut_ratio')) 
+        config.sprompt_len = int(os.environ.get('sprompt_len')) 
+
         self.model = LlavaLlamaModel(config)
         self.pretraining_tp = config.pretraining_tp
         self.vocab_size = config.vocab_size
@@ -133,7 +138,45 @@ class LlavaLlamaForCausalLM(LlamaForCausalLM, LlavaMetaForCausalLM):
             )
         else:
             inputs_embeds = self.get_model().embed_tokens(inputs)
+        
+        return super().generate(
+            position_ids=position_ids,
+            attention_mask=attention_mask,
+            inputs_embeds=inputs_embeds,
+            **kwargs
+        )
+    def generate_vtratio(
+        self,
+        inputs: Optional[torch.Tensor] = None,
+        images: Optional[torch.Tensor] = None,
+        image_sizes: Optional[torch.Tensor] = None,
+        **kwargs,
+    ) -> Union[GenerateOutput, torch.LongTensor]:
+        position_ids = kwargs.pop("position_ids", None)
+        attention_mask = kwargs.pop("attention_mask", None)
+        if "inputs_embeds" in kwargs:
+            raise NotImplementedError("`inputs_embeds` is not supported")
 
+        if images is not None:
+            (
+                inputs,
+                position_ids,
+                attention_mask,
+                _,
+                inputs_embeds,
+                _
+            ) = self.prepare_inputs_labels_for_multimodal(
+                inputs,
+                position_ids,
+                attention_mask,
+                None,
+                None,
+                images,
+                image_sizes=image_sizes
+            )
+        else:
+            inputs_embeds = self.get_model().embed_tokens(inputs)
+        del kwargs['streamer']
         return super().generate(
             position_ids=position_ids,
             attention_mask=attention_mask,
