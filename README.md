@@ -63,10 +63,7 @@ bash infer.sh
 ```Shell
 bash scripts/v1_5/finetune_yopo.sh
 ```
-## Main result
-![Results on prunining the LLaVa](images/main_result.png "Results on prunining the LLaVa")
-![Results on pruning the Qwen and InternVL](images/many_models.png "Results on pruning the Qwen and InternVL")
-
+## Evaluation
 
 ## Citation
 
