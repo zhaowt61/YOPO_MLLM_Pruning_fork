@@ -60,7 +60,9 @@ bash infer.sh
 
    put them into `./checkpoints/llava-v1.5-13b-pretrain` and `./checkpoints/llava-v1.5-7b-pretrain` respectively
 4. Run training
+   ```Shell
    bash scripts/v1_5/finetune_yopo.sh
+   ```
 ## Main result
 ![Results on prunining the LLaVa](images/main_result.png "Results on prunining the LLaVa")
 ![Results on pruning the Qwen and InternVL](images/many_models.png "Results on pruning the Qwen and InternVL")
