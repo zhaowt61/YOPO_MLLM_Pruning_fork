@@ -25,10 +25,11 @@ pip install -e ".[train]"
 pip install flash-attn --no-build-isolation
 ```
 
-2. Update the modeling file to ours for acceleration
+2. copy our updated `modeling_llama.py` to transformer library
 ```Shell
-cd ~
-cp modeling_llama_prune.py {YOUR ENV PATH}/lib/python3.10/site-packages/transformers//models/llama/modeling_llama.py
+cp ../modeling_llama_prune.py {YOUR ENV PATH}/lib/python3.10/site-packages/transformers//models/llama/modeling_llama.py
+# eg. cp ../modeling_llama_prune.py /opt/conda/envs/llava/lib/python3.10/site-packages/transformers//models/llama/modeling_llama.py
+
 ```
 
 3. Download the checkpoints of pruned LLaVA
