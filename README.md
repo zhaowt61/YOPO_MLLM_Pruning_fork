@@ -47,8 +47,11 @@ cp ../modeling_llama_prune.py {YOUR ENV PATH}/lib/python3.10/site-packages/trans
 bash infer.sh
 ```
 :triangular_flag_on_post:  We will release the code for pruning the visual computation in Qwen, InternVL without the fine-tuning process very soon.  
-:triangular_flag_on_post:  The code for training pruned LLava will also be released soon.  
+ 
+## Training
 
+1. Download LLaVA 2nd stage training data
+   https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md
 
 ## Main result
 ![Results on prunining the LLaVa](images/main_result.png "Results on prunining the LLaVa")
