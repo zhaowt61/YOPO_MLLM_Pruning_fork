@@ -12,15 +12,8 @@ This repository contains the core code to implement the idea of  our paper:
 ### **Can we prune our MLLM just once instead?**:interrobang: ###
 
 
-## Abstract
-By treating visual tokens from visual encoders as text tokens, Multimodal Large Language Models (MLLMs) have achieved remarkable progress across diverse visual understanding tasks, leveraging the robust architectures of Large Language Models (LLMs). However, as token counts grow, the quadratic scaling of computation in LLMs introduces a significant efficiency bottleneck, impeding further scalability. Although recent approaches have explored pruning visual tokens or employing lighter LLM architectures, the computational overhead from an increasing number of visual tokens remains a substantial challenge.
 
-In this study, we investigate the redundancy in visual computation at both the parameter and computational pattern levels within LLaVA, a representative MLLM, and introduce a suite of streamlined strategies to enhance efficiency. These include **neighbor-aware visual token attention**, **pruning of inactive visual attention heads**, and **selective layer dropping** for visual computations. By implementing these strategies in LLaVA, we achieve a reduction in computational demands of 88% while maintaining model performance across key benchmarks. Additionally, we validate the existence of visual computational redundancy in other MLLMs, such as Qwen2-VL-7B and InternVL-2.0-4B/8B/26B. These results present a novel pathway for MLLMs to handle dense visual tokens with minimal computational costs. Code and model checkpoints will be released to support further research.
-
-
-
-
-## How to use our code?
+## Installation
 1. set up LLavA  
 ```Shell
 cd LLaVA
@@ -28,6 +21,8 @@ conda create -n llava python=3.10 -y
 conda activate llava
 pip install --upgrade pip  
 pip install -e .
+pip install -e ".[train]"
+pip install flash-attn --no-build-isolation
 ```
 
 2. Update the modeling file to ours for acceleration
