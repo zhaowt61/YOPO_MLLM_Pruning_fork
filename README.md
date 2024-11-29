@@ -14,7 +14,7 @@ This repository contains the core code to implement the idea of  our paper:
 
 
 ## Installation
-1. set up LLavA  
+1. Set up LLavA  
 ```Shell
 cd LLaVA
 conda create -n llava python=3.10 -y
@@ -25,7 +25,7 @@ pip install -e ".[train]"
 pip install flash-attn --no-build-isolation
 ```
 
-2. copy our updated `modeling_llama.py` to transformer library
+2. Copy our updated `modeling_llama.py` to transformer library
 ```Shell
 cp ../modeling_llama_prune.py {YOUR ENV PATH}/lib/python3.10/site-packages/transformers//models/llama/modeling_llama.py
 # eg. cp ../modeling_llama_prune.py /opt/conda/envs/llava/lib/python3.10/site-packages/transformers//models/llama/modeling_llama.py
@@ -42,7 +42,7 @@ cp ../modeling_llama_prune.py {YOUR ENV PATH}/lib/python3.10/site-packages/trans
 
 [LLaVA-1.5-13B (25% FLOPs)](https://huggingface.co/zwt123home123/llava-1.5-13b-prune-zp25)
 
-2. run inference
+2. Run inference
 ```Shell
 bash infer.sh
 ```
@@ -50,9 +50,17 @@ bash infer.sh
  
 ## Training
 
-1. Download LLaVA 2nd stage training data
+1. Download LLaVA-1.5 2nd stage training data
    https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md
+2. Download LLaVA-1.5 mm_projector weights
+   
+   https://huggingface.co/liuhaotian/llava-v1.5-mlp2x-336px-pretrain-vicuna-13b-v1.5
 
+   https://huggingface.co/liuhaotian/llava-v1.5-mlp2x-336px-pretrain-vicuna-7b-v1.5
+
+   put them into `./checkpoints/llava-v1.5-13b-pretrain` and `./checkpoints/llava-v1.5-7b-pretrain` respectively
+4. Run training
+   bash scripts/v1_5/finetune_yopo.sh
 ## Main result
 ![Results on prunining the LLaVa](images/main_result.png "Results on prunining the LLaVa")
 ![Results on pruning the Qwen and InternVL](images/many_models.png "Results on pruning the Qwen and InternVL")
