@@ -50,7 +50,7 @@ bash infer.sh
  
 ## Training
 
-1. Download LLaVA-1.5 2nd stage training data
+1. Download and set up LLaVA-1.5 2nd stage training data
    https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md
 2. Download LLaVA-1.5 mm_projector weights
    
