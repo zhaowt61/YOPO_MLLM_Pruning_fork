@@ -14,7 +14,7 @@ This repository contains the core code to implement the idea of  our paper:
 
 
 ## Install
-1. Set up LLavA  
+1. Set up LLavA  https://github.com/haotian-liu/LLaVA 
 ```Shell
 cd LLaVA
 conda create -n llava python=3.10 -y
