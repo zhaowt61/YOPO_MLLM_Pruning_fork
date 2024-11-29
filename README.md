@@ -13,7 +13,7 @@ This repository contains the core code to implement the idea of  our paper:
 
 
 
-## Installation
+## Install
 1. Set up LLavA  
 ```Shell
 cd LLaVA
